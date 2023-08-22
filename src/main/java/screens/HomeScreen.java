@@ -16,7 +16,7 @@ public class HomeScreen {
         this.appiumDriver = appiumDriver;
     }
 
-    public ProfileScreen navToProfile() {
+    public ProfileScreen navToProfile(){
         appiumDriver.findElement(profile).click();
         return new ProfileScreen(appiumDriver);
     }

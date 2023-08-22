@@ -8,11 +8,10 @@ import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.touch.TouchActions;
 
-public class SigninScreen {
-    private AppiumDriver appiumDriver;
+public class SigninScreen extends MobileScreen {
 
     public SigninScreen(AppiumDriver appiumDriver) {
-        this.appiumDriver = appiumDriver;
+        super(appiumDriver);
     }
 
     public HomeScreen signin(User clint){

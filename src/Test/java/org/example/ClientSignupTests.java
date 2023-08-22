@@ -2,28 +2,18 @@ package org.example;
 
 import driver.DriverCreator;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
 import models.User;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import screens.*;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class ClientSignupTests {
 
     @Test
     public void clientShouldBeAbleToSignupSuccessfully() throws MalformedURLException {
-        //Arrange
-//        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-//        desiredCapabilities.setCapability("platformName", "Android");
-//        desiredCapabilities.setCapability("deviceName", "Pixel_6");
-//        desiredCapabilities.setCapability("automationName", "UiAutomator2");
-//        desiredCapabilities.setCapability("app", "app/ul-coach.apk");
 
 
         DesiredCapabilities caps = new DesiredCapabilities();
@@ -39,9 +29,9 @@ public class ClientSignupTests {
         AppiumDriver mobileDriver = new DriverCreator().createDriverContext(caps);
 
         mobileDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-            LauncherScreen launcherScreen = new LauncherScreen(mobileDriver); // Assume mobileDriver is created and handy.
+        LauncherScreen launcherScreen = new LauncherScreen(mobileDriver); // Assume mobileDriver is created and handy.
         launcherScreen.navToClientSignup();
-        launcherScreen.navToLogin();
+        launcherScreen.navToClientSignin();
         User client = new User("testuser04@gmail.com","testuser@04");
 
         //Act

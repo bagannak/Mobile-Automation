@@ -15,14 +15,11 @@ public class DriverCreator {
 
     public AppiumDriver create(DesiredCapabilities desiredCapabilities) {
         Platform platform = desiredCapabilities.getPlatformName();
-        switch (platform) {
-            case ANDROID:
-                return new AndroidDriver(desiredCapabilities);
-            case IOS:
-                return new IOSDriver(desiredCapabilities);
-            default:
-                throw new RuntimeException("Missing platform!! Add platformName capability.");
-        }
+        return switch (platform) {
+            case ANDROID -> new AndroidDriver(desiredCapabilities);
+            case IOS -> new IOSDriver(desiredCapabilities);
+            default -> throw new RuntimeException("Missing platform!! Add platformName capability.");
+        };
     }
 
     public AppiumDriver createDriverContext(DesiredCapabilities desiredCapabilities) throws MalformedURLException {

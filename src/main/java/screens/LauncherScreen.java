@@ -22,8 +22,10 @@ public class LauncherScreen extends MobileScreen {
         return new SignupScreen(appiumDriver);
     }
 
-    public SigninScreen navToLogin() {
-        waits.waitForElementToBeVisible(loginBtn).click();
+    public SigninScreen navToClientSignin() {
+//        waits.waitForElementToBeVisible(loginBtn).click();
+        screenActions.click(loginBtn);
         return new SigninScreen(appiumDriver);
+
     }
 }
